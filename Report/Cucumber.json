@@ -1,0 +1,83 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 2,
+        "name": "Checking Login Functionality with valid login credentials",
+        "description": "",
+        "id": "checking-login-functionality-of-the-application;checking-login-functionality-with-valid-login-credentials",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 61679976900,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "user is on Login Page",
+            "match": {
+              "location": "login.user_is_on_Login_Page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 192722400,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user enters username in username textfield",
+            "match": {
+              "location": "login.user_enters_username_in_username_textField()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 108733200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user enters password in password textfield",
+            "match": {
+              "location": "login.user_enters_password_in_password_textField()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 7561430000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user clicks on the Login button",
+            "match": {
+              "location": "login.user_clicks_on_the_Login_button()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 15083300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user is on Home Page",
+            "match": {
+              "location": "login.user_is_on_Home_Page()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Checking Login Functionality of the application",
+    "description": "",
+    "id": "checking-login-functionality-of-the-application",
+    "keyword": "Feature",
+    "uri": "C:/Users/AnkitKumar/IdeaProjects/InfoStride/CucumberFramework/src/test/java/Featurefiles/Login.feature",
+    "tags": []
+  }
+]
