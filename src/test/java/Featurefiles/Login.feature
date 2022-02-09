@@ -5,3 +5,5 @@ Feature: Checking Login Functionality of the application
     Then user enters password in password textfield
     When user clicks on the Login button
     Then user is on Home Page
+
+

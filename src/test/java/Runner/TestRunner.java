@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
                 features = {"C:\\Users\\AnkitKumar\\IdeaProjects\\InfoStride\\CucumberFramework\\src\\test\\java\\Featurefiles"},
                 glue = {"StepDefinitions"},
                 //dryRun = true,
-               //monochrome = true,
+
                 //strict = true,
                 plugin = {"pretty","json:Report/Cucumber.json",
                 "junit:Report/XMLReport.xml",
