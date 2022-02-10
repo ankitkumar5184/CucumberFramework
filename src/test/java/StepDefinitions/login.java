@@ -13,6 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class login {
     WebDriver driver;
+    String uname = "Admin";
+    String upass = "admin123";
     String employee = "Sara Tencrady";
     String username = RandomStringUtils.randomAlphabetic(10);
     String pass =    RandomStringUtils.randomAlphabetic(8);
@@ -24,15 +26,15 @@ public class login {
         driver.manage().window().maximize();
         driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
     }
-
+//    Login using login credentials
     @Then("^user enters username in username textfield$")
     public void user_enters_username_in_username_textField() {
-        driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+        driver.findElement(By.id("txtUsername")).sendKeys(uname);
     }
 
     @Then("^user enters password in password textfield$")
     public void user_enters_password_in_password_textField() {
-        driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+        driver.findElement(By.id("txtPassword")).sendKeys(upass);
     }
 
     @When("^user clicks on the Login button$")
@@ -44,7 +46,7 @@ public class login {
     public void user_is_on_Home_Page() {
         Assert.assertEquals("OrangeHRM", driver.getTitle());
     }
-
+    //    Adding new user
         @Then("^user clicks on Admin button$")
         public void user_clicks_on_Admin_button() {
             driver.findElement(By.id("menu_admin_viewAdminModule")).click();
@@ -82,6 +84,7 @@ public class login {
             String txt = driver.findElement(By.className("fadable")).getText();
             System.out.println("Message :"+ txt);
         }
+        //Searching saved user
         @Then("^user clicks on AdminButton$")
         public void user_clicks_on_AdminButton(){
             driver.findElement(By.id("menu_admin_viewAdminModule")).click();
@@ -99,6 +102,7 @@ public class login {
     public void clicks_on_search_button(){
         driver.findElement(By.name("_search")).click();
     }
+    //    Deleting the saved user
     @Then("^click on Checkbox$")
     public void click_on_Checkbox(){
         driver.findElement(By.name("chkSelectRow[]")).click();
@@ -113,6 +117,7 @@ public class login {
         String msg = driver.findElement(By.className("fadable")).getText();
         System.out.println("Message 2: "+ msg);
     }
+    // Logout the user
     @When("^user clicks on Welcome Option$")
     public void user_clicks_on_Welcome_Option() throws InterruptedException {
         driver.findElement(By.partialLinkText("Welcome")).click();
