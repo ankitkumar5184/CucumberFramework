@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class login {
     WebDriver driver;
-    String employee = "Admin A";
+    String employee = "Sara Tencrady";
     String username = RandomStringUtils.randomAlphabetic(10);
     String pass =    RandomStringUtils.randomAlphabetic(8);
 
@@ -57,10 +57,12 @@ public class login {
 
         @Then("^enters existing employee name$")
         public void enters_existing_employee_name(){
+
             driver.findElement(By.xpath("//*[@id=\"systemUser_employeeName_empName\"]")).sendKeys(employee);
         }
         @Then("^user enters username in username$")
         public void user_enters_username_in_username(){
+            driver.findElement(By.id("systemUser_userName")).clear();
             driver.findElement(By.id("systemUser_userName")).sendKeys(username);
         }
         @Then("^enters the password$")
@@ -69,15 +71,58 @@ public class login {
             driver.findElement(By.id("systemUser_password")).sendKeys(pass);
         }
         @Then("^enters the confirm password$")
-        public void enters_the_confirm_password(){
+        public void enters_the_confirm_password() throws InterruptedException {
             driver.findElement(By.id("systemUser_confirmPassword")).sendKeys(pass);
+            Thread.sleep(4000);
         }
         @Then("^clicks on save button$")
-        public void clicks_on_save_button(){
-            driver.findElement(By.id("btnSave")).click();
+        public void clicks_on_save_button() throws InterruptedException {
+            driver.findElement(By.xpath("//*[@id=\"btnSave\"]")).click();
+            Thread.sleep(3000);
+            String txt = driver.findElement(By.className("fadable")).getText();
+            System.out.println("Message :"+ txt);
         }
+        @Then("^user clicks on AdminButton$")
+        public void user_clicks_on_AdminButton(){
+            driver.findElement(By.id("menu_admin_viewAdminModule")).click();
+    }
+    @Then("^clicks on search username textfiled and enters the name$")
+    public void clicks_on_search_username_textfiled_and_enters_the_name(){
+        driver.findElement(By.name("searchSystemUser[userName]")).sendKeys(username);
+    }
+    @Then("^enters employee name in the textfield$")
+    public void enters_employee_name_in_the_textfield(){
+        driver.findElement(By.name("searchSystemUser[employeeName][empName]")).sendKeys(employee);
 
     }
-
-
+    @Then("^clicks on search button$")
+    public void clicks_on_search_button(){
+        driver.findElement(By.name("_search")).click();
+    }
+    @Then("^click on Checkbox$")
+    public void click_on_Checkbox(){
+        driver.findElement(By.name("chkSelectRow[]")).click();
+    }
+    @Then("^click on delete option$")
+    public void click_on_delete_option(){
+        driver.findElement(By.name("btnDelete")).click();
+    }
+    @Then("^click on confirmation option$")
+    public void click_on_confirmation_option(){
+        driver.findElement(By.id("dialogDeleteBtn")).click();
+        String msg = driver.findElement(By.className("fadable")).getText();
+        System.out.println("Message 2: "+ msg);
+    }
+    @When("^user clicks on Welcome Option$")
+    public void user_clicks_on_Welcome_Option() throws InterruptedException {
+        driver.findElement(By.partialLinkText("Welcome")).click();
+        Thread.sleep(2000);
+    }
+    @Then("^clicks on Logout button$")
+    public void clicks_on_Logout_button() throws InterruptedException {
+        driver.findElement(By.linkText("Logout")).click();
+        Thread.sleep(2000);
+        driver.close();
+    }
+    }
 
